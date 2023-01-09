@@ -1,7 +1,7 @@
 # CPSC1517 Winter 2023 Term Workbook
 
-## your name here
+## Aidan Hoffschild
 
-## your Github Account id
+## ahoffschild
 
 This is a public repository for your classroom demonstrations and practice. You will use this only for public work. Exercise work submitted within this repository will NOT be evaluated.
