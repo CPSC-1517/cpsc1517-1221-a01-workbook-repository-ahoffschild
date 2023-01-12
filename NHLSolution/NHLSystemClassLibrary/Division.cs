@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NHLSystemClassLibrary
 {
-    internal enum Division
+    public enum Division
     {
         Metropolitan,
         Atlantic,

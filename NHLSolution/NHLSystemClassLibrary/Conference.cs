@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NHLSystemClassLibrary
 {
-    internal enum Conference
+    public enum Conference
     {
         Eastern,
         Western

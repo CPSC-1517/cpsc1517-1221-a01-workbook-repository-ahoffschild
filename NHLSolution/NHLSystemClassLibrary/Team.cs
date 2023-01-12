@@ -7,23 +7,56 @@ using System.Threading.Tasks;
 
 namespace NHLSystemClassLibrary
 {
-    internal class Team
+    public class Team
     {
+        private string _name;
+        private string _city;
+        private string _arena;
+
         private string Name 
         {
             get { return Name; }
             set
             {
-                if (String.IsNullOrEmpty(value))
+                if (String.IsNullOrWhiteSpace(value))
                 {
                     throw new ArgumentNullException("Error: empty string.");
                 }
-                else if (Regex.IsMatch, @"[a-zA-Z]+$")
-                Name = value; 
+                if (!value.All(Char.IsLetter))
+                {
+                    throw new ArgumentNullException("Error: must have only letters.");
+                }
+                _name = value.Trim();
             }
         }
-        private string City { get; set; }
-        private string Arena { get; set; }
+        private string City
+        {
+            get { return _city; }
+            set
+            {
+                if (String.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentNullException("Error: empty string.");
+                }
+                if (value.Length <= 3)
+                {
+                    throw new ArgumentNullException("Error: must have more than 3 characters.");
+                }
+                _city = value.Trim();
+            }
+        }
+        private string Arena
+        {
+            get { return _arena; }
+            set
+            {
+                if (String.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentNullException("Error: empty string.");
+                }
+                _arena = value.Trim();
+            }
+        }
         private Conference Conference { get; set; }
         private Division Division { get; set; }
 
@@ -34,6 +67,11 @@ namespace NHLSystemClassLibrary
             Arena = arena;
             Conference = conference;
             Division = division;
+        }
+
+        public Team(string name)
+        {
+            Name = name;
         }
     }
 }
