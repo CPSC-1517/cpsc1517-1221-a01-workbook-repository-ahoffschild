@@ -13,7 +13,7 @@ namespace NHLSystemClassLibrary
         private string _city;
         private string _arena;
 
-        private string Name 
+        public string Name 
         {
             get { return Name; }
             set
@@ -29,7 +29,7 @@ namespace NHLSystemClassLibrary
                 _name = value.Trim();
             }
         }
-        private string City
+        public string City
         {
             get { return _city; }
             set
@@ -45,7 +45,7 @@ namespace NHLSystemClassLibrary
                 _city = value.Trim();
             }
         }
-        private string Arena
+        public string Arena
         {
             get { return _arena; }
             set
@@ -57,8 +57,8 @@ namespace NHLSystemClassLibrary
                 _arena = value.Trim();
             }
         }
-        private Conference Conference { get; set; }
-        private Division Division { get; set; }
+        public Conference Conference { get; set; }
+        public Division Division { get; set; }
 
         public Team(string name, string city, string arena, Conference conference, Division division)
         {
