@@ -7,13 +7,13 @@ namespace NHLSystemTestProject
     public class TeamTest
     {
         [TestMethod]
-        [DataRow("Oilers", "Edmonton", "Edmonton Arena", Conference.Western, Division.Pacific)]
-        [DataRow("Flames", "Calgary", "Calgary Arena", Conference.Western, Division.Pacific)]
-        [DataRow("Canucks", "Vancouver", "Vancouver Arena", Conference.Western, Division.Pacific)]
-        [DataRow("Maple Leafs", "Toronto", "Toronto Arena", Conference.Eastern, Division.Atlantic)]
-        [DataRow("Senators", "Ottawa", "Ottawa Arena", Conference.Eastern, Division.Atlantic)]
-        [DataRow("Canadiens", "Montreal", "Montreal Arena", Conference.Eastern, Division.Atlantic)]
-        [DataRow("Jets", "Winnipeg", "Winnipeg Arena", Conference.Western, Division.Central)]
+        [DataRow("Oilers", "Edmonton", "Rogers Place", Conference.Western, Division.Pacific)]
+        [DataRow("Flames", "Calgary", "Scotiabank Saddledome", Conference.Western, Division.Pacific)]
+        [DataRow("Canucks", "Vancouver", "Rogers Arena", Conference.Western, Division.Pacific)]
+        [DataRow("Maple Leafs", "Toronto", "Scotiabank Arena", Conference.Eastern, Division.Atlantic)]
+        [DataRow("Senators", "Ottawa", "Canadian Tire Center", Conference.Eastern, Division.Atlantic)]
+        [DataRow("Canadiens", "Montreal", "Centre Bell", Conference.Eastern, Division.Atlantic)]
+        [DataRow("Jets", "Winnipeg", "Canada Life Centre", Conference.Western, Division.Central)]
         public void Name_ValidName_Name(
             string teamName,
             string city,
