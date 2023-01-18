@@ -13,6 +13,8 @@ namespace NHLSystemClassLibrary
         private int _gamesPlayed;
         private int _goals;
         private int _assists;
+        const int minPlayerNumber = 1;
+        const int maxPlayerNumber = 98;
 
         public int PlayerNumber
         {
@@ -20,11 +22,11 @@ namespace NHLSystemClassLibrary
             {
                 return _playerNumber;
             }
-            set
+            private set
             {
-                if (value < 1 || value > 98)
+                if (value < minPlayerNumber || value > maxPlayerNumber)
                 {
-                    throw new ArgumentException("Player Number must be between 1 and 98.");
+                    throw new ArgumentException($"Player Number must be between {minPlayerNumber} and {maxPlayerNumber}.");
                 }
                 _playerNumber = value;
             }
@@ -35,7 +37,7 @@ namespace NHLSystemClassLibrary
             {
                 return _playerName;
             }
-            set
+            private set
             {
                 if (string.IsNullOrEmpty(value))
                 {
@@ -50,47 +52,41 @@ namespace NHLSystemClassLibrary
             {
                 return _gamesPlayed;
             }
-            set
+            internal set
             {
-                if (value < 0)
+                if (!Utilities.IsPositiveOrZero(value))
                 {
                     throw new ArgumentException("Games played cannot be less than 0.");
                 }
-                _gamesPlayed = value;
             }
         }
         public int Goals
         {
-            get
+            get => _goals;
+            private set
             {
-                return _goals;
-            }
-            set
-            {
-                if (value < 0)
+                if (!Utilities.IsPositiveOrZero(value))
                 {
                     throw new ArgumentException("Goals cannot be less than 0.");
                 }
-                _goals = value;
             }
         }
         public int Assists
         {
-            get
+            get => _assists;
+            private set
             {
-                return _assists;
-            }
-            set
-            {
-                if (value < 0)
+                if (!Utilities.IsPositiveOrZero(value))
                 {
                     throw new ArgumentException("Assists cannot be less than 0.");
                 }
-                _assists = value;
             }
         }
-        public int Points { get; set; }
-        public Position Position {get; set;}
+        public int Points
+        {
+            get => Goals + Assists;
+        }
+        public Position Position { get; private set; }
 
         public Player(int playerNum, string playerName, Position position, int gamesPlayed, int goals, int assists)
         {
@@ -100,7 +96,27 @@ namespace NHLSystemClassLibrary
             GamesPlayed = gamesPlayed;
             Goals = goals;
             Assists = assists;
-            Points = Goals + Assists;
+        }
+        public Player(int playerNum, string playerName, Position position)
+        {
+            PlayerNumber = playerNum;
+            PlayerName = playerName;
+            Position = position;
+            GamesPlayed = 0;
+            Goals = 0;
+            Assists = 0;
+        }
+        public void AddGamePlayed()
+        {
+            GamesPlayed += 1;
+        }
+        public void AddGoalScored()
+        {
+            Goals += 1;
+        }
+        public void AddAssistScored()
+        {
+            Assists += 1;
         }
     }
 }

@@ -10,6 +10,7 @@ namespace NHLSystemClassLibrary
 {
     public class Team
     {
+        private const int teamLimit = 23;
         private string _name;
         private string _city;
         private string _arena;
@@ -64,7 +65,7 @@ namespace NHLSystemClassLibrary
         }
         public Conference Conference { get; set; }
         public Division Division { get; set; }
-        private List<Player> Players { get; set; }
+        public List<Player> Players { get; private set; }
 
         public Team(string name, string city, string arena, Conference conference, Division division)
         {
@@ -83,19 +84,20 @@ namespace NHLSystemClassLibrary
 
         public void AddPlayer(Player newPlayer)
         {
-            if (newPlayer.PlayerNumber == null)
+            if (newPlayer == null)
             {
-                throw new ArgumentException("Player does not have a number.");
+                throw new ArgumentException("Player cannot be null.");
             }
             foreach (Player playerNum in Players)
             {
-                for (int x = 0; x < Players.Count; x++)
+                if (playerNum.PlayerNumber == newPlayer.PlayerNumber)
                 {
-                    if (playerNum.PlayerNumber == Players[x].PlayerNumber)
-                    {
-                        throw new ArgumentException("Player is already on the list.");
-                    }
+                    throw new ArgumentException("Player is already on the list.");
                 }
+            }
+            if (Players.Count >= teamLimit)
+            {
+                throw new ArgumentException($"Team has {teamLimit} players already.");
             }
             Players.Add(newPlayer);
         }
