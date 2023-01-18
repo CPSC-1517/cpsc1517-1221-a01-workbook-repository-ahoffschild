@@ -52,7 +52,7 @@ namespace NHLSystemClassLibrary
             {
                 return _gamesPlayed;
             }
-            internal set
+            protected set
             {
                 if (!Utilities.IsPositiveOrZero(value))
                 {
