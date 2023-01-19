@@ -39,7 +39,7 @@ namespace NHLSystemClassLibrary
             }
             private set
             {
-                if (string.IsNullOrEmpty(value))
+                if (string.IsNullOrWhiteSpace(value))
                 {
                     throw new ArgumentException("Name cannot be empty.");
                 }
@@ -58,6 +58,7 @@ namespace NHLSystemClassLibrary
                 {
                     throw new ArgumentException("Games played cannot be less than 0.");
                 }
+                _gamesPlayed = value;
             }
         }
         public int Goals
@@ -69,6 +70,7 @@ namespace NHLSystemClassLibrary
                 {
                     throw new ArgumentException("Goals cannot be less than 0.");
                 }
+                _goals = value;
             }
         }
         public int Assists
@@ -80,6 +82,7 @@ namespace NHLSystemClassLibrary
                 {
                     throw new ArgumentException("Assists cannot be less than 0.");
                 }
+                _assists = value;
             }
         }
         public int Points
