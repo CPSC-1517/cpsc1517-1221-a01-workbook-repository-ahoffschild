@@ -147,7 +147,16 @@ namespace NHLSystemTestProject
 			Assert.AreEqual(currentplayer.Points, expectedPoints);
 		}
 
-		//Write a test method for validating these properties: GamesPlayed, Goals, Assists, Points
-		//Write test methods for methods AddGamesPlayed(), AddGoals(), AddAssists()
-	}
+        [TestMethod]
+        [DataRow(97, "Connor McDavid", Position.Centre, 50, 27, 15)]
+        public void AddGamesPlayed_ValidMethodCheck(int playerNumberT, string playerNameT, Position positionT, int gamesPlayedT, int goalsT, int assistsT)
+        {
+            Player currentplayer = new Player(playerNumberT, playerNameT, positionT, gamesPlayedT, goalsT, assistsT);
+			currentplayer.AddGamePlayed();
+			Assert.AreEqual(currentplayer.GamesPlayed, gamesPlayedT + 1);
+        }
+
+        //Write a test method for validating these properties: GamesPlayed, Goals, Assists, Points
+        //Write test methods for methods AddGamesPlayed(), AddGoals(), AddAssists()
+    }
 }
