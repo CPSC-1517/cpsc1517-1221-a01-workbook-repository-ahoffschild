@@ -156,6 +156,13 @@ namespace NHLSystemTestProject
 			Assert.AreEqual(currentplayer.GamesPlayed, gamesPlayedT + 1);
         }
 
+		[TestMethod]
+		[DataRow()]
+		public void TryParse_ThrowsExceptionsCheck(string csvLine, int playerNumberT, string playerNameT, Position positionT, int gamesPlayedT, int goalsT, int assistsT)
+		{
+			
+		}
+
         //Write a test method for validating these properties: GamesPlayed, Goals, Assists, Points
         //Write test methods for methods AddGamesPlayed(), AddGoals(), AddAssists()
     }
