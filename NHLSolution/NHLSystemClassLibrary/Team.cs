@@ -80,6 +80,12 @@ namespace NHLSystemClassLibrary
         public Team(string name)
         {
             Name = name;
+			Players = new List<Player>();
+		}
+
+        public Team()
+        {
+            Players = new List<Player>();
         }
 
         public void AddPlayer(Player newPlayer)

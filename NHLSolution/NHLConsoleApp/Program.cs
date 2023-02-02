@@ -1,5 +1,6 @@
 ﻿using NHLSystemClassLibrary;
 using System.Linq.Expressions;
+using System.Text.Json;
 
 namespace NHLConsoleApp
 {
@@ -96,6 +97,47 @@ namespace NHLConsoleApp
                 Console.WriteLine(queryGameTitle);
             }
 
+            static void WriteTeamInfoToJsonFile(Team currentTeam, string jsonFilePath)
+            {
+                try
+                {
+                    JsonSerializerOptions options = new JsonSerializerOptions
+                    {
+                        WriteIndented = true,
+                        IncludeFields = true,
+                    };
+                    string jsonString = JsonSerializer.Serialize<Team>(currentTeam, options);
+                    File.WriteAllText(jsonFilePath, jsonString);
+                    Console.WriteLine("Write to JSON file was successful.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error serializing to JSON file with exception: {ex.Message}");
+                }
+            }
+
+            static Team ReadTeamFromJsonFile(string jsonFilePath)
+            {
+                Team currentTeam = null;
+                try
+                {
+                    string jsonString = File.ReadAllText(jsonFilePath);
+                    JsonSerializerOptions options = new JsonSerializerOptions
+                    {
+                        WriteIndented = true,
+                        IncludeFields = true,
+                    };
+                    currentTeam = JsonSerializer.Deserialize<Team>(jsonString);
+                    currentTeam.AddPlayer(JsonSerializer.Deserialize<Player>(jsonString));
+
+				}
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error deserializing from JSON file with exception: {ex.Message}");
+                }
+                return currentTeam;
+            }
+
             //Console.WriteLine("Enter the team name: ");
             //string teamName = Console.ReadLine();
 
@@ -115,12 +157,15 @@ namespace NHLConsoleApp
 
             Team notCanucks = new Team("Not Canucks", "Vancouver", "Rogers Arena", Conference.Western, Division.Pacific);
             string filePath = ("C:\\Users\\ahoffschild1\\Documents\\GitHub\\cpsc1517-1221-a01-workbook-repository-ahoffschild\\NHLSolution\\notCanucks.csv");
-            ReadPlayerDataFromCsv(ref notCanucks, filePath);
+			string filePath2 = ("C:\\Users\\ahoffschild1\\Documents\\GitHub\\cpsc1517-1221-a01-workbook-repository-ahoffschild\\NHLSolution\\notCanucks.json");
+            //ReadPlayerDataFromCsv(ref notCanucks, filePath);
+            notCanucks = ReadTeamFromJsonFile(filePath2);
             Console.WriteLine($"{notCanucks.City} {notCanucks.Name} plays in {notCanucks.Arena} with players:");
             foreach (Player player in notCanucks.Players)
             {
                 Console.WriteLine(player.ToString());
             }
+            //WriteTeamInfoToJsonFile(notCanucks, filePath2);
         }
     }
 }

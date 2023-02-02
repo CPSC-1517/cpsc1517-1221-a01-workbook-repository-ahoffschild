@@ -12,6 +12,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8FCB0E0E-E3B8-446E-954C-8F1D25D3601D}"
 	ProjectSection(SolutionItems) = preProject
 		notCanucks.csv = notCanucks.csv
+		notCanucks.json = notCanucks.json
 	EndProjectSection
 EndProject
 Global

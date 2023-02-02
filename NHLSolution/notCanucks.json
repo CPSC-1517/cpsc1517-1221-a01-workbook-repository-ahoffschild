@@ -1,0 +1,54 @@
+{
+  "Name": "Not Canucks",
+  "City": "Vancouver",
+  "Arena": "Rogers Arena",
+  "Conference": 1,
+  "Division": 3,
+  "Players": [
+    {
+      "PlayerNumber": 33,
+      "PlayerName": "Henrik Sedin",
+      "GamesPlayed": 43,
+      "Goals": 5,
+      "Assists": 6,
+      "Points": 11,
+      "Position": 1
+    },
+    {
+      "PlayerNumber": 34,
+      "PlayerName": "Daniel Sedin",
+      "GamesPlayed": 43,
+      "Goals": 6,
+      "Assists": 5,
+      "Points": 11,
+      "Position": 2
+    },
+    {
+      "PlayerNumber": 19,
+      "PlayerName": "Chris Higgins",
+      "GamesPlayed": 37,
+      "Goals": 9,
+      "Assists": 3,
+      "Points": 12,
+      "Position": 0
+    },
+    {
+      "PlayerNumber": 53,
+      "PlayerName": "Trevor Linden",
+      "GamesPlayed": 39,
+      "Goals": 4,
+      "Assists": 12,
+      "Points": 16,
+      "Position": 1
+    },
+    {
+      "PlayerNumber": 67,
+      "PlayerName": "Harold Snepsts",
+      "GamesPlayed": 22,
+      "Goals": 2,
+      "Assists": 5,
+      "Points": 7,
+      "Position": 3
+    }
+  ]
+}

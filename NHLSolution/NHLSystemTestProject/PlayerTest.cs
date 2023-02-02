@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -157,10 +158,18 @@ namespace NHLSystemTestProject
         }
 
 		[TestMethod]
-		[DataRow()]
-		public void TryParse_ThrowsExceptionsCheck(string csvLine, int playerNumberT, string playerNameT, Position positionT, int gamesPlayedT, int goalsT, int assistsT)
+		[DataRow("33,Henrik Sedin,Left_Wing,43,5", false, $"CSV line must contain exactly 6 values.")]
+		public void TryParse_ThrowsExceptionsCheck(string csvLine, bool successExpected, string expectedEx)
 		{
-			
+			Player playerT = new Player();
+			try
+			{
+				bool successT = Player.TryParse(csvLine, ref playerT);
+			}
+			catch (FormatException ex)
+			{
+				Assert.AreEqual(expectedEx, ex.Message);
+			}
 		}
 
         //Write a test method for validating these properties: GamesPlayed, Goals, Assists, Points

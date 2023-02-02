@@ -111,7 +111,6 @@ namespace NHLSystemClassLibrary
         }
         public Player()
         {
-
         }
         public void AddGamePlayed()
         {
