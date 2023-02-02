@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="NHLSystemClassLibrary.CanadianIncomeTaxManager">
+    <Position X="9" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CanadianIncomeTaxManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NHLSystemClassLibrary.Goalie">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAIAAAQAAAAAAAAAAAAAAAAAAAAQAgAAAAAAAA=</HashCode>
+      <FileName>Goalie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NHLSystemClassLibrary.Player">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUAQJAAAIAAgEAgAJABAAAAAQAAAAAAAAIAAQAgIAA=</HashCode>
+      <FileName>Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NHLSystemClassLibrary.Team">
+    <Position X="12.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAIAAAAAAABAAIAAAAAQQAABAgAAAAAAgACAACAAA=</HashCode>
+      <FileName>Team.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NHLSystemClassLibrary.Utilities">
+    <Position X="10.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utilities.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="NHLSystemClassLibrary.CanadianIncomeTaxData">
+    <Position X="5.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgACCCgACAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>CanadianIncomeTaxData.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="NHLSystemClassLibrary.Conference">
+    <Position X="7.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Conference.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="NHLSystemClassLibrary.Division">
+    <Position X="9" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAIAAAAAAABAAAAAQAAAAA=</HashCode>
+      <FileName>Division.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="NHLSystemClassLibrary.Position">
+    <Position X="10.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BBAAAAAAAAAAAAAQAAAAAAAAAAAIAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Position.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
