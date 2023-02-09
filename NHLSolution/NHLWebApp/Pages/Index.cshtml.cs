@@ -15,6 +15,12 @@ namespace NHLWebApp.Pages
         //Define an auto-implemented property for username
         [BindProperty]
         public string Username { get; set; }
+        [BindProperty]
+        public int? Age { get; set; }
+        [BindProperty]
+        public string? DmitStream { get; set; }
+        [BindProperty]
+        public string? Gender { get; set; }
         //Define auto-implemented property for displaying our feedback messages
         public string? InfoMessage { get; private set; }
 
@@ -25,7 +31,7 @@ namespace NHLWebApp.Pages
             // "Hello {username}. Your lucky number is {luckyNumber}."
             var rand = new Random();
             var randomNumber = rand.Next(1, 51);
-            InfoMessage = $"Hello {Username}. Your lucky number is {randomNumber}";
+            InfoMessage = $"Hello {Username}. Your lucky number is {randomNumber}. Your age is {Age}, and you are in the {DmitStream} NAIT Stream. Gender is {Gender},";
         }
 
         public void OnGet()

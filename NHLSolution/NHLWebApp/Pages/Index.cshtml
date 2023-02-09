@@ -18,15 +18,55 @@
 }
 
 <form method="post">
-        <div class="mb-3">
-            <label for="username" class=""form-label">Your name:</label>
-            <input type="text" class="form-control" id="username"
-            name="Username" value="@Model.Username"
-            placeholder="Enter your name here" />
-        </div>
+    <div class="mb-3">
+        <label for="username" class="" form-label">Your name:</label>
+        <input type="text" class="form-control" id="username"
+               name="Username" value="@Model.Username"
+               placeholder="Enter your name here" />
+    </div>
 
-        <!-- TODO 1: add form fields for number and date -->
-        <!-- TODO 2: add form field for a select menu -->
+    <!-- TODO 1: add form fields for number and date -->
+    <div class="mb-3">
+        <label for="age" class="form-label">Your age:</label>
+        <input type="number" min="18" max="75" class="form-control" id="age"
+               name="Age" value="@Model.Age"
+               placeholder="Enter your age here." />
+    </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+    <!-- TODO 2: add form field for a select menu -->
+    <div class="mb-3">
+        <select class="form-select" aria-label="Stream Select"
+                name="DmitStream" value="@Model.DmitStream">
+            <option selected>Open This Menu</option>
+            <option value="GP">Game Programming</option>
+            <option value="WD">Web Development</option>
+            <option value="CSD">Computer Software Development</option>
+        </select>
+    </div>
+
+    <!-- TODO 3: Radio buttons for gender -->
+
+    <div class="form-check" value="@Model.Gender">
+        <input class="form-check-input" type="radio" id="genderRadioM"
+               name="Gender" value="Male" />
+        <label class="form-check-label" for="genderRadioM">Male</label>
+    </div>
+    <div class="form-check" value="@Model.Gender">
+        <input class="form-check-input" type="radio" id="genderRadioF"
+               name="Gender" value="Female" />
+        <label class="form-check-label" for="genderRadioF">Female</label>
+    </div>
+    <div class="form-check" value="@Model.Gender">
+        <input class="form-check-input" type="radio" id="genderRadioO"
+               name="Gender" value="Other" />
+        <label class="form-check-label" for="genderRadioO">Other</label>
+    </div>
+
+    <!-- TODO 4: add form field for a textarea field for a list of friends -->
+    <!-- TODO 5: add form field for a checkbox field for Subscribe to Spam -->
+    <!-- TODO 6: add form field for a date field for Date of Birth -->
+    <!-- TODO 7: add form field for a range field mood (0 to 100) -->
+    <!-- TODO 8: add form field for a email field -->
+
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
