@@ -22,6 +22,8 @@ namespace NHLWebApp.Pages
         [BindProperty]
         public string? Gender { get; set; }
         //Define auto-implemented property for displaying our feedback messages
+        [BindProperty]
+        public string? Friends { get; set; }
         public string? InfoMessage { get; private set; }
 
         public void OnPost()
