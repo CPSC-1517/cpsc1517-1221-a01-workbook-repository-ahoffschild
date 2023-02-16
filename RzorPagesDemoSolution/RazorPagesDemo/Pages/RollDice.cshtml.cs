@@ -22,11 +22,27 @@ namespace RazorPagesDemo.Pages
             "img/icons/000000/transparent/1x1/delapouite/dice-six-faces-six.png"
         };
 
+        [BindProperty]
+        public int BetAmount { get; set; }
+        [BindProperty]
+        public int SelectedDiceSide { get; set; }
+
+        public string ?InfoMessage { get; private set; }
+
         public void OnPost()
         {
             var rand = new Random();
             DiceFaceValue = rand.Next(1, 7);
             DiceFaceValueImg = DiceImages[DiceFaceValue - 1];
+
+            if (DiceFaceValue == SelectedDiceSide)
+            {
+                InfoMessage = $"Congratulations, you won {BetAmount:C}.";
+            }
+            else
+            {
+                InfoMessage = $"You have lost {BetAmount:C}.";
+            }
         }
     }
 }

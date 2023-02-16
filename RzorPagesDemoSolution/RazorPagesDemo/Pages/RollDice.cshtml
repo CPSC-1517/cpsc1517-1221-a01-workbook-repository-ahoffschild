@@ -11,13 +11,41 @@
          width="200px"
          height="200px" />
 
-    <form method="post">
-        <button type="submit" class="btn btn-primary">Roll Dice</button>
-    </form>
+    <br />
 
     <img src="@Model.DiceFaceValueImg"
          alt="Dynamic Dice Image"
          width="200px"
          height="200px" />
+
+    <form method="post">
+        <button type="submit" class="btn btn-primary">Roll Dice</button>
+
+        <div>
+            <label for="BetAmount">BetAmount</label>
+            <input type="number" min="1" max="20" id="BetAmount" name="BetAmount" value="@Model.BetAmount" />
+        </div>
+
+        <div>
+            <label for="SelectedDiceSide">Select Dice Side</label>
+            <select class="form-select"
+                    id="SelectedDiceSide"
+                    name="SelectedDiceSide" value="@Model.SelectedDiceSide">
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="4">Four</option>
+                <option value="5">Five</option>
+                <option value="6">Six</option>
+            </select>
+        </div>
+    </form>
+
+    @if (Model.InfoMessage != null)
+    {
+        <div>
+            @Model.InfoMessage
+        </div>
+    }
 
 </div>
