@@ -1,0 +1,46 @@
+﻿@page
+@model RazorPagesDemo.Pages.MultiplicationTableModel
+@{
+
+    <div class="row">
+        <button type="submit" class="btn btn-primary" asp-page-handler="Multiply">Generate Multiplication Table</button>
+        <button type="submit" class="btn btn-success" asp-page-handler="Add">Generate Addition Table</button>
+        <button type="submit" class="btn btn-info" asp-page-handler="Subtract">Generate Subtraction Table</button>
+    </div>
+
+    @if (Model.TableTypeToGenerate is not null)
+    {
+        <table class="table table-bordered">
+            @for (int row = 1; row <= Model.DigitsVertically; row++)
+            {
+                <tr>
+                    @for (int column = 1; column <= Model.DigitsHorizontally; column++)
+                    {
+                        int result = 0;
+                        switch (Model.TableTypeToGenerate)
+                        {
+                            case (TableType.Addition):
+                                result = (row + column);
+                                break;
+                            case (TableType.Subtraction):
+                                result = (row - column);
+                            break;
+                            case (TableType.Multiplication):
+                                result = (row * column);
+                            break;
+                        }
+
+                        if (row == column)
+                        {
+                            <td style="background-color: forestgreen">@(result)</td>
+                        }
+                        else
+                        {
+                            <td>@(result)</td>
+                        }
+                    }
+                </tr>
+            }
+        </table>
+    }
+}
