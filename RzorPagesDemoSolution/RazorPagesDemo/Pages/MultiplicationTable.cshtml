@@ -2,11 +2,29 @@
 @model RazorPagesDemo.Pages.MultiplicationTableModel
 @{
 
-    <div class="row">
-        <button type="submit" class="btn btn-primary" asp-page-handler="Multiply">Generate Multiplication Table</button>
-        <button type="submit" class="btn btn-success" asp-page-handler="Add">Generate Addition Table</button>
-        <button type="submit" class="btn btn-info" asp-page-handler="Subtract">Generate Subtraction Table</button>
-    </div>
+    <h1>Math Tables</h1>
+
+    <form method="post">
+        <div class="row">
+            <div class="col">
+                <input type="number" class="form-control"
+                    asp-for="DigitsVertically"
+                    min="1" max="12"
+                    placeholder="digits vertically" aria-label="digits vertically">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control"
+                    asp-for="DigitsHorizontally"
+                    min="1" max="12"
+                    placeholder="digits horizontally" aria-label="digits horizontally">
+            </div>
+        </div>
+        <div class="row">
+            <button type="submit" class="btn btn-primary" asp-page-handler="Multiply">Generate Multiplication Table</button>
+            <button type="submit" class="btn btn-success" asp-page-handler="Add">Generate Addition Table</button>
+            <button type="submit" class="btn btn-info" asp-page-handler="Subtract">Generate Subtraction Table</button>
+        </div>
+    </form>
 
     @if (Model.TableTypeToGenerate is not null)
     {
@@ -32,7 +50,7 @@
 
                         if (row == column)
                         {
-                            <td style="background-color: forestgreen">@(result)</td>
+                            <td style="background-color: yellow">@(result)</td>
                         }
                         else
                         {

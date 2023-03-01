@@ -1,0 +1,83 @@
+﻿@page
+@model NHLWebApp.Pages.jsonTeamPageModel
+@{
+}
+
+@using NHLSystemClassLibrary;
+
+<h1>JSON Team Model</h1>
+
+@if (Model.displayTeam != null)
+{
+    <table style="table table-bordered">
+        <thead>
+            <th>Team Name</th>
+            <th>Team City</th>
+            <th>Team Arena</th>
+            <th>Team Conference</th>
+            <th>Team Division</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Model.displayTeam.Name
+                </td>
+                <td>
+                    @Model.displayTeam.City
+                </td>
+                <td>
+                    @Model.displayTeam.Arena
+                </td>
+                <td>
+                    @Model.displayTeam.Conference
+                </td>
+                <td>
+                    @Model.displayTeam.Division
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    @if (Model.displayTeam.Players.Count > 0)
+    {
+        <table style="table table-bordered">
+            <thead>
+            <th>Player Number</th>
+            <th>Player Name</th>
+            <th>Player Position</th>
+            <th>Player GP</th>
+            <th>Player Goals</th>
+            <th>Player Assists</th>
+            <th>Player Points</th>
+            </thead>
+            <tbody>
+                @foreach (Player player in Model.displayTeam.Players)
+                {
+                    <tr>
+                        <td>
+                            @player.PlayerNumber
+                        </td>
+                        <td>
+                            @player.PlayerName
+                        </td>
+                        <td>
+                            @player.Position
+                        </td>
+                        <td>
+                            @player.GamesPlayed
+                        </td>
+                        <td>
+                            @player.Goals
+                        </td>
+                        <td>
+                            @player.Assists
+                        </td>
+                        <td>
+                            @player.Points
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+}

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace NHLSystemClassLibrary
@@ -91,6 +92,7 @@ namespace NHLSystemClassLibrary
         }
         public Position Position { get; private set; }
 
+        [JsonConstructor]
         public Player(int playerNum, string playerName, Position position, int gamesPlayed, int goals, int assists)
         {
             PlayerNumber = playerNum;

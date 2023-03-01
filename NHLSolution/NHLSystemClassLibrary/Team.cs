@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -65,8 +66,9 @@ namespace NHLSystemClassLibrary
         }
         public Conference Conference { get; set; }
         public Division Division { get; set; }
+        [JsonInclude]
         public List<Player> Players { get; private set; }
-
+        [JsonConstructor]
         public Team(string name, string city, string arena, Conference conference, Division division)
         {
             Name = name;

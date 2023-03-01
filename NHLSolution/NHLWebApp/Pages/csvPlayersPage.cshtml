@@ -1,0 +1,52 @@
+﻿@page
+@model NHLWebApp.Pages.csvPlayersPageModel
+@{
+    
+}
+
+@using NHLSystemClassLibrary;
+
+<h1>Players from CSV File</h1>
+
+@if (Model.playerList.Count > 0)
+{
+    <table style="table table-striped table-success">
+        <thead>
+            <th>Player Number</th>
+            <th>Player Name</th>
+            <th>Player Position</th>
+            <th>Player GP</th>
+            <th>Player Goals</th>
+            <th>Player Assists</th>
+            <th>Player Points</th>
+        </thead>
+        <tbody>
+        @foreach (Player player in Model.playerList)
+        {
+        <tr>
+            <td>
+                @player.PlayerNumber
+            </td>
+            <td>
+                @player.PlayerName
+            </td>
+            <td>
+                @player.Position
+            </td>
+            <td>
+                @player.GamesPlayed
+            </td>
+            <td>
+                @player.Goals
+            </td>
+            <td>
+                @player.Assists
+            </td>
+            <td>
+                @player.Points
+            </td>
+        </tr>
+        }
+        </tbody>
+    </table>
+}
