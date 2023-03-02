@@ -1,0 +1,77 @@
+﻿@page
+@model RazorPagesDemo.Pages.LottoQuickPicksModel
+@{
+    ViewData["Title"] = "Lotto Quick Picks";
+}
+
+<h1>Lotto Quick Picks</h1>
+
+<div>
+    <form method="post">
+        <div>
+                <label asp-for="playerName"><b>Name:</b></label>
+                <input asp-for="playerName" />
+        </div>
+        <div>
+                <row>
+                <b>Lotto Type:</b>
+                <label asp-for="lottoType">Lotto 649</label>
+                <input type="radio" asp-for="lottoType" value="@LottoType.Lotto649"/>
+                <label asp-for="lottoType">Lotto Max</label>
+                <input type="radio" asp-for="lottoType" value="@LottoType.LottoMax"/>
+                </row>
+        </div>
+        <div>
+            <label for="picksSelect">Quick Picks:</label>
+            <select class="form-select" asp-for="quickPickAmount">
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="4">Four</option>
+                <option value="5">Five</option>
+                <option value="6">Six</option>
+                <option value="7">Seven</option>
+                <option value="8">Eight</option>
+                <option value="9">Nine</option>
+            </select>
+        </div>
+        <div>
+            <button class="btn-primary" type="submit" asp-page-handler="Generate">Generate</button>
+            <button class="btn-primary" type="submit" asp-page-handler="Clear">Clear</button>
+        </div>
+    </form>
+</div>
+
+<div>
+    @if (Model.InfoMessage != null)
+    {
+        @Model.InfoMessage;
+    }
+    else if (Model.ErrorMessage != null)
+    {
+        @Model.ErrorMessage;
+    }
+</div>
+
+@{
+    if (Model.quickPicks.Count > 0)
+    {
+        int quickPickCount = 1;
+        foreach (int[] currentQuickPicks in Model.quickPicks)
+        {
+        <p>Quick Pick #@quickPickCount</p>
+        <table>
+                        <tbody>
+                            <tr>
+                                @foreach(int currentNumber in currentQuickPicks)
+                            {
+                                    <td>@currentNumber</td>
+                            }
+                            </tr>
+                        </tbody>
+        </table>
+        quickPickCount++;
+        <br />
+        }
+    }
+}
