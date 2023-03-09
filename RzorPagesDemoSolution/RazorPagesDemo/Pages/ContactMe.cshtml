@@ -1,0 +1,46 @@
+﻿@page
+@model RazorPagesDemo.Pages.ContactMeModel
+@{
+}
+
+<h1>Contact Me</h1>
+
+@if (!String.IsNullOrEmpty(Model.InfoMessage))
+{
+    <div class="alert-info">@Model.InfoMessage</div>
+}
+@if (!String.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert-warning">@Model.ErrorMessage</div>
+}
+
+<div>
+    <form method="post">
+        <div>
+            <label for="userName">Your Name:</label>
+            <input type="text" id="userName" asp-for="ContactName"/>
+            <p style="color:red;font-size:70%">required</p>
+        </div>
+        <div>
+            <label for="userEmail">Your Email:</label>
+            <input type="text" id="userEmail" asp-for="ContactEmail" />
+            <p style="color:red;font-size:70%">required</p>
+        </div>
+        <div>
+            <label for="commentsArea">Comments:</label>
+            <textarea class="form-control" id="commentsArea" rows="4" asp-for="ContactComments"></textarea>
+            <p style="color:red;font-size:70%">at least 10 chars required</p>
+        </div>
+
+        <div>
+            <input type="checkbox" id="subscribeCheck" asp-for="ContactSubscribe"/>
+            <label for="subscribeCheck">Subscribe to Promotions</label>
+        </div>
+
+        <div>
+            <button type="submit" class="btn-info" asp-page-handler="SendMessage">Send Message</button>
+            <button type="submit" class="btn-info" asp-page-handler="Clear">Clear</button>
+            <button type="submit" class="btn-info" asp-page-handler="Reset">Reset</button>
+        </div>
+    </form>
+</div>
