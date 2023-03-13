@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Net.Mail;
+using System.Text.RegularExpressions;
 
 namespace RazorPagesDemo.Pages
 {
@@ -32,6 +33,10 @@ namespace RazorPagesDemo.Pages
                 {
                     ErrorMessage = ("Email is required.");
                 }
+                if (Regex.Match(value, "\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}\\b") == null)
+                {
+                    ErrorMessage = ("Must enter a proper email.");
+                }
                 _contactEmail = value;
             }
         }
@@ -59,7 +64,7 @@ namespace RazorPagesDemo.Pages
 
         public void OnPostSendMessage()
         {
-            if (string.IsNullOrEmpty(ErrorMessage))
+            if (string.IsNullOrWhiteSpace(ErrorMessage))
             {
                 string subscribeMessage = (ContactSubscribe) ? "Yes" : "No";
                 InfoMessage = $"Name: {ContactName}<br />Email: {ContactEmail}<br />Comments: {ContactComments}<br />Subscribed: {subscribeMessage}";
@@ -82,14 +87,14 @@ namespace RazorPagesDemo.Pages
 
         }
 
-        private void EmailFunction()
-        {
-            SmtpClient sendMailClient = new();
-            sendMailClient.Host = Configuration["MailServerSettings:Host"];
-            sendMailClient.Port = int.Parse(Configruation["MailServerSettings:Port"]);
-            sendMailClient.EnableSsl = bool.Parse(Configuration["MailServerSettings:EnableSsl"])
+        //private void EmailFunction()
+        //{
+        //    SmtpClient sendMailClient = new();
+        //    sendMailClient.Host = Configuration["MailServerSettings:Host"];
+        //    sendMailClient.Port = int.Parse(Configruation["MailServerSettings:Port"]);
+        //    sendMailClient.EnableSsl = bool.Parse(Configuration["MailServerSettings:EnableSsl"]);
 
-            NetworkCredential
-        }
+        //    NetworkCredential
+        //}
     }
 }
